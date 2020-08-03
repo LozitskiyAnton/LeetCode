@@ -6,19 +6,26 @@ class Solution {
 
         int begin=0;
         int buf=0;
-        int max=0;
+        int max=Integer.MIN_VALUE;
         int length= nums.length;
-        for (int i=0; i<nums.length-1;){
-            for(int j=i; j<nums.length-i; j++){
+        for (int i=0; i<nums.length;){
+            for(int j=i; j<nums.length; j++){
                 if(j>=nums.length) break;
                 buf+=nums[j];
                 if (buf>max) {max=buf;
                 }
             }
             i++;
-            buf=nums[i];
+            buf=0;
         }
         return max;
 
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] n= {-2,1,-3,4,-1,2,1,-5,4};
+
+        System.out.println(solution.maxSubArray(n));
     }
 }
